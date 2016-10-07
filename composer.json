@@ -1,0 +1,32 @@
+{
+  "name": "fusio/adapter-soap",
+  "description": "Adapter which provides a way to call SOAP endpoints",
+  "homepage": "http://fusio-project.org",
+  "keywords": ["fusio-adapter"],
+  "license": "AGPL-3.0",
+  "authors": [
+    {
+      "name": "Christoph Kappestein",
+      "email": "christoph.kappestein@gmail.com",
+      "homepage": "http://christoph.kappestein.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5",
+    "ext-soap": "*",
+    "fusio/engine": "^0.4@dev"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^4.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Fusio\\Adapter\\Soap\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Fusio\\Adapter\\Soap\\Tests\\": "tests/"
+    }
+  }
+}
