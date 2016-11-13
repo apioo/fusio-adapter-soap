@@ -29,6 +29,7 @@ use Fusio\Engine\Form\BuilderInterface;
 use Fusio\Engine\Form\ElementFactoryInterface;
 use Fusio\Engine\ParametersInterface;
 use Fusio\Engine\RequestInterface;
+use PSX\Data\Record\Transformer;
 use PSX\Json;
 
 /**
@@ -73,7 +74,6 @@ class SoapRequest extends ActionAbstract
         $builder->add($elementFactory->newInput('method', 'Method', 'text', 'Name of the remote method'));
         $builder->add($elementFactory->newInput('username', 'Username', 'text', 'Optional username for authentication'));
         $builder->add($elementFactory->newInput('password', 'Password', 'text', 'Optional password for authentication'));
-        $builder->add($elementFactory->newTextArea('arguments', 'Arguments', 'json', 'A JSON encoded array or object which is passed as argument to the remote method'));
     }
 
     public function setSoapClientFactory(ClientFactoryInterface $soapClientFactory)
@@ -84,14 +84,7 @@ class SoapRequest extends ActionAbstract
     protected function executeRequest(RequestInterface $request, ParametersInterface $configuration, ContextInterface $context)
     {
         // parse arguments
-        $parser    = $this->templateFactory->newTextParser();
-        $arguments = $parser->parse($request, $context, $configuration->get('arguments'));
-
-        if (!empty($arguments)) {
-            $arguments = (array) Json\Parser::decode($arguments);
-        } else {
-            $arguments = array();
-        }
+        $arguments = Transformer::toArray($request->getBody());
 
         // build request
         $wsdl     = $configuration->get('wsdl')     ?: null;

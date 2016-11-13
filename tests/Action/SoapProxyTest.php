@@ -49,7 +49,7 @@ class SoapProxyTest extends \PHPUnit_Framework_TestCase
 
         $soapClient->expects($this->once())
             ->method('call')
-            ->with($this->equalTo('doFoo'), $this->equalTo(['foo', 'bar']))
+            ->with($this->equalTo('doFoo'), $this->equalTo(['foo' => 'bar']))
             ->willReturn(['bar' => 'foo']);
 
         $soapClientFactory = $this->getMockBuilder(ClientFactoryInterface::class)
@@ -70,10 +70,9 @@ class SoapProxyTest extends \PHPUnit_Framework_TestCase
         $action->setSoapClientFactory($soapClientFactory);
 
         $parameters = $this->getParameters([
-            'version'   => SOAP_1_2,
-            'url'       => 'http://127.0.0.1/tests/soap.php',
-            'method'    => 'doFoo',
-            'arguments' => json_encode(['foo', 'bar']),
+            'version' => SOAP_1_2,
+            'url'     => 'http://127.0.0.1/tests/soap.php',
+            'method'  => 'doFoo',
         ]);
 
         $body = Record::fromArray([
