@@ -1,6 +1,6 @@
 {
   "name": "fusio/adapter-soap",
-  "description": "Adapter which provides a way to call SOAP endpoints",
+  "description": "Provides a connection to call SOAP endpoints",
   "homepage": "http://fusio-project.org",
   "keywords": ["fusio-adapter"],
   "license": "AGPL-3.0",
