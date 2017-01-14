@@ -1,6 +1,5 @@
 {
-  "actionClass": [
-    "Fusio\\Adapter\\Soap\\Action\\SoapProxy",
-    "Fusio\\Adapter\\Soap\\Action\\SoapRequest"
+  "connectionClass": [
+    "Fusio\\Adapter\\Soap\\Connection\\Soap"
   ]
 }
