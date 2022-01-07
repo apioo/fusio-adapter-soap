@@ -3,7 +3,7 @@
  * Fusio
  * A web-application to create dynamically RESTful APIs
  *
- * Copyright (C) 2015-2018 Christoph Kappestein <christoph.kappestein@gmail.com>
+ * Copyright (C) 2015-2022 Christoph Kappestein <christoph.kappestein@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -31,20 +31,16 @@ use Fusio\Engine\ParametersInterface;
  *
  * @author  Christoph Kappestein <christoph.kappestein@gmail.com>
  * @license http://www.gnu.org/licenses/agpl-3.0
- * @link    http://fusio-project.org
+ * @link    https://www.fusio-project.org/
  */
 class Soap implements ConnectionInterface
 {
-    public function getName()
+    public function getName(): string
     {
         return 'SOAP';
     }
 
-    /**
-     * @param \Fusio\Engine\ParametersInterface $config
-     * @return \SoapClient
-     */
-    public function getConnection(ParametersInterface $config)
+    public function getConnection(ParametersInterface $config): \SoapClient
     {
         $options = [];
 
@@ -72,7 +68,7 @@ class Soap implements ConnectionInterface
         return new \SoapClient($wsdl, $options);
     }
 
-    public function configure(BuilderInterface $builder, ElementFactoryInterface $elementFactory)
+    public function configure(BuilderInterface $builder, ElementFactoryInterface $elementFactory): void
     {
         $builder->add($elementFactory->newInput('wsdl', 'WSDL', 'text', 'Location of the WSDL specification'));
         $builder->add($elementFactory->newInput('location', 'Location', 'text', 'Required if no WSDL is available'));
