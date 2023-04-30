@@ -3,7 +3,7 @@
  * Fusio
  * A web-application to create dynamically RESTful APIs
  *
- * Copyright (C) 2015-2022 Christoph Kappestein <christoph.kappestein@gmail.com>
+ * Copyright (C) 2015-2023 Christoph Kappestein <christoph.kappestein@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -21,14 +21,13 @@
 
 namespace Fusio\Adapter\Soap\Tests\Action;
 
+use Fusio\Adapter\Smtp\Tests\SoapTestCase;
 use Fusio\Adapter\Soap\Connection\Soap;
 use Fusio\Engine\Form\Builder;
 use Fusio\Engine\Form\Container;
 use Fusio\Engine\Form\Element\Input;
 use Fusio\Engine\Form\Element\Select;
 use Fusio\Engine\Parameters;
-use Fusio\Engine\Test\EngineTestCaseTrait;
-use PHPUnit\Framework\TestCase;
 
 /**
  * SoapTest
@@ -37,10 +36,8 @@ use PHPUnit\Framework\TestCase;
  * @license http://www.gnu.org/licenses/agpl-3.0
  * @link    https://www.fusio-project.org/
  */
-class SoapTest extends TestCase
+class SoapTest extends SoapTestCase
 {
-    use EngineTestCaseTrait;
-
     public function testGetConnection()
     {
         /** @var Soap $connection */
