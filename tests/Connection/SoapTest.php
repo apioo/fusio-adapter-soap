@@ -21,8 +21,8 @@
 
 namespace Fusio\Adapter\Soap\Tests\Action;
 
-use Fusio\Adapter\Smtp\Tests\SoapTestCase;
 use Fusio\Adapter\Soap\Connection\Soap;
+use Fusio\Adapter\Soap\Tests\SoapTestCase;
 use Fusio\Engine\Form\Builder;
 use Fusio\Engine\Form\Container;
 use Fusio\Engine\Form\Element\Input;

@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Fusio\Adapter\Smtp\Tests;
+namespace Fusio\Adapter\Soap\Tests;
 
 use Fusio\Adapter\OpenStack\Connection\BlockStorage;
 use Fusio\Adapter\OpenStack\Connection\Compute;
